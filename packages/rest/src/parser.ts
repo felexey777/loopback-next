@@ -178,8 +178,9 @@ export async function loadRequestBodyIfNeeded(
 
   if (is(matchedMediaType, 'json')) {
     try {
-      const jsonBody = await parseJsonBody(request, options);
-      requestBody.value = jsonBody;
+      //const jsonBody = await parseJsonBody(request, options);
+      const { body } = request;
+      requestBody.value = body;
       return requestBody;
     } catch (err) {
       throw normalizeParsingError(err);
